@@ -11,6 +11,8 @@ require('../db/config');
 
 router.route('/adddoctor').post(async(req,resp)=>{
     
+    console.log("api targeted")
+
     Doctor.init()
     const setid = new mongoose.Types.ObjectId();
    

@@ -34,6 +34,10 @@ router.route('/removenurse/:id').delete(function(req,res){
 })
 router.route("/search/:firstname").get(function(req,res){
     var regex = new RegExp(req.params.firstname,'i');
+    
+    const event = 0 ;
+    
+
     Nurse.find({firstname:regex}).then((result)=>{
         res.status(200).json(result)
     })

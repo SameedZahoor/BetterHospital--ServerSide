@@ -3,13 +3,14 @@ const app = express();
 const mongoose = require('mongoose');
 const router = express.Router();
 const Patient = require('../models/patients');
+const patient_user = require('../models/patientuser')
 var bodyparser = require('body-parser');
 var jsonparser = bodyparser.json();
 
 
 router.route('/addpatient').post(jsonparser,function(req,res){
     const patientdata = new Patient({
-    _id: new mongoose.Types.ObjectId(),
+     _id: new mongoose.Types.ObjectId(),
      firstname:req.body.firstname,
      lastname:req.body.lastname,
      CNIC:req.body.CNIC,

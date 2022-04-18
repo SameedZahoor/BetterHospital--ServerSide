@@ -42,9 +42,7 @@ router.route('/addroom').post(async(req,resp)=>{
  router.route('/allotroomtopatient/:id').patch(async(req,resp)=>{
        
     try {
-     
-
-        
+            
         var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();

@@ -6,6 +6,7 @@ const cors = require("cors");
 // Server Usage
 app.use(express.json());
 app.use(cors());
+
 // Connecting to the MongoDb Atlas database
 require('./db/config');
 
