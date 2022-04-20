@@ -1,4 +1,10 @@
 {
-    "firstname":"Sameed","lastname":"Zahoor","CNIC":"33100-1234567-1","phone":"03001234567","age":"21","gender":"Male","dob": {"year":"1998","month":"7","day":"3"}
+    "firstname":"Sameed",
+    "lastname":"Zahoor",
+    "CNIC":"33100-1234567-1",
+    "phone":"03001234567",
+    "age":"21",
+    "gender":"Male",
+    "dob": {"year":"1998","month":"7","day":"3"}
 }
  

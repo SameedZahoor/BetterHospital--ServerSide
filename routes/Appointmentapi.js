@@ -30,14 +30,10 @@ router.route("/addappointment").post(async(req,resp)=>{
     } catch(err){
         console.warn(err);
     }
-
-
 })
 
 router.route("/cancelappointment/:id").patch(async(req,resp)=>{
-
     try {
-               
             const id = req.params.id;
             var updates ={}
             updates["status"]="cancelled"; 
@@ -52,9 +48,14 @@ router.route("/cancelappointment/:id").patch(async(req,resp)=>{
     } catch(err){
         console.warn(err);
     }
-
-
 })
 
+router.route("/searchMyAllAppointments/:Patient_ID").get(function(req,res){
+    var regex = new RegExp(req.params.Patient_ID,'i');
+    Appointment.find({Patient_ID:regex}).then((result)=>{
+        res.status(200).json(result)
+        console.log(result)
+    })
+})
 
 module.exports = router;

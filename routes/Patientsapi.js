@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const router = express.Router();
 const Patient = require('../models/patients');
-const patient_user = require('../models/patientuser')
+//const patient_user = require('../models/patientuser')
 var bodyparser = require('body-parser');
 var jsonparser = bodyparser.json();
 
