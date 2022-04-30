@@ -24,13 +24,13 @@ var RadiologyTest = require('./routes/Radiologyapi')
 // Routed Api
 app.use('/Nurse',NurseApis);
 app.use('/Doctor',DoctorApis);
-app.use('/Bloodrequest',BloodRequestApis);
+app.use('/BloodRequest',BloodRequestApis);
 app.use('/Patient',PatientApis);
 app.use('/Room',RoomApis);
 app.use('/Appointment',AppointmentApis);
 app.use('/PatientLogin',PatientLoginApis)
 app.use('/DoctorLogin',DoctorLoginApis)
-app.use('/RadioLogy',RadiologyTest)
+app.use('/Radiology',RadiologyTest)
 
 // listening @ 5000 port
 app.listen(5000);

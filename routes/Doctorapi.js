@@ -30,7 +30,7 @@ router.route('/adddoctor').post(async(req,resp)=>{
     
     let result = await doctordata.save(); 
     resp.send(result);
- //      resp.send("recieved");
+ // resp.send("recieved");
         
  })
  
@@ -43,7 +43,13 @@ router.route('/removedoctor/:id').delete(async(req,resp)=>{
  })
  
 router.route("/search/:firstname").get(function(req,res){
-     var regex = new RegExp(req.params.firstname,'i');
+   
+   //const headercontent = req.header();
+  // console.log("🚀 ~ file: Doctorapi.js ~ line 48 ~ router.route ~  headercontent",  headercontent)
+   
+    res.setMaxListeners
+
+    var regex = new RegExp(req.params.firstname,'i');
      Doctor.find({firstname:regex}).then((result)=>{
          res.status(200).json(result)
      })

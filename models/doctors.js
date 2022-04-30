@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
 let doctorsSchema = new mongoose.Schema ({
     _id:mongoose.Schema.Types.ObjectId,
-    firstname:String,
-    lastname:String,
-    CNIC:String,
-    phone:String,
-    age:String,
-    gender:String,
-    dob:Date
+    firstname:{type:String ,require:true},
+    lastname:{type:String ,require:true},
+    CNIC:{type:String ,require:true},
+    phone:{type:String ,require:true},
+    age:{type:String , require:true}, 
+    gender:{type:String ,require:true},
+    dob:String,
+    bachelor_edu : {type:String ,require:true},
+    masters_edu : {type:String }
 },{
      versionKey: false // You should be aware of the outcome after set to false 
 })

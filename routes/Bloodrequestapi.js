@@ -10,17 +10,29 @@ require('../db/config');
 
 
 
-router.route('/addBloodRequest').post(jsonparser,function(req,res){
+router.route('/add').post(jsonparser,function(req,res){
+
+  try{
+    console.table(req.body);
+
     const Blood_Request_Data = new Blood_Request({
-    _id: new mongoose.Types.ObjectId(),
-     Patient_ID:req.body.Patient_ID,
-     Blood_Group:req.body.Blood_Group,
-     Quantity_inML:req.body.Quantity_inML
+        _id: new mongoose.Types.ObjectId(),
+        patient_id: req.body.patientid,
+        Blood_Group:   req.body.bloodtype,
+        Quantity_inML: req.body.bloodquantity
     })
     
     Blood_Request_Data.save().then((result)=>{
-             console.warn(result)
+        console.warn(result)
+        res.status(200).json("Completed")
     })
+
+  } catch (err){
+      console.log(err);
+      res.status(404).json("Err") // Sending res to client some err occured.
+  }
+
+
  })
  
 router.route('/removeBloodRequest/:id').delete(function(req,res){

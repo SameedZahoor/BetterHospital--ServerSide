@@ -17,8 +17,8 @@ router.route('/addpatient').post(jsonparser,function(req,res){
      phone:req.body.phone,
      age:req.body.age,
      gender:req.body.gender,
-     dob: new Date(parseInt(req.body.dob.year),parseInt(req.body.dob.month),parseInt(req.body.dob.day)),     
-     admit:False
+     dob: req.body.dob,     
+    
     })
     
     patientdata.save().then((result)=>{
