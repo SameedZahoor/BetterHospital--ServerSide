@@ -7,9 +7,9 @@ let doctorsSchema = new mongoose.Schema ({
     phone:{type:String ,require:true},
     age:{type:String , require:true}, 
     gender:{type:String ,require:true},
-    dob:String,
+    dob:{type:String ,require:true},
     bachelor_edu : {type:String ,require:true},
-    masters_edu : {type:String }
+    masters_edu : {type:String,default:null }
 },{
      versionKey: false // You should be aware of the outcome after set to false 
 })

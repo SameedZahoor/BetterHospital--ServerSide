@@ -25,8 +25,30 @@ router.route('/addpatient').post(jsonparser,function(req,res){
              res.send("Success");
              console.warn(result);
     })
- })
- 
+})
+
+
+
+
+router.route("/details/:patientid").get(async(req,res)=>{
+
+    try{
+
+        Patient.findOne({patientid:req.params.patientid}).sort({x:-1}).then( (result) => {
+            res.status(200).json(result)
+            console.log(result)
+            }
+        );
+
+
+    } catch (err){
+        console.warn(err);
+        resp.status(404).json("Err") // Sending res to client some err occured.
+    }
+})
+
+
+
 router.route('/removepatient/:id').delete(function(req,res){
     
     Patient.deleteOne({_id:req.params.id}).then((result)=>{

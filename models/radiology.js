@@ -8,10 +8,10 @@ let RadiologySchema = new mongoose.Schema(
       ref: "patients",
       required: true,
     },
-    charges: { type: Number }, // must be calculated from the server.
+    charges: { type: String }, // must be calculated from the server.
     radiology_type: { type: String, required: true },
-    dated: { type: Date, required: true },
+    dated: { type: String },
   },
   { versionKey: false }
 );
-module.exports = mongoose.model("radiology", RadiologySchema);
+module.exports = mongoose.model("radiologies", RadiologySchema);

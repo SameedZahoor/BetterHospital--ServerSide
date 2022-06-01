@@ -43,23 +43,62 @@ router.route('/addroom').post(async(req,resp)=>{
        
     try {
             
-        var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = date+' '+time;        
+
+        var dateTime =  new Date().toISOString().slice(0, 10);  
 
         var updates = req.body;
         updates["allotmentdate"] = dateTime;
         updates["status"] = "occupied";
-
+        updates["patienid"] = req.body.patienid
         console.table(updates);
          const id = req.params.id;    
          const options = {new:true};
          let result = await Room.findByIdAndUpdate(id,updates,options); 
-         resp.send(result);
+         console.log("🚀 ~ file: Roomapi.js ~ line 57 ~ router.route ~ result", result)
+         
+         if (result!=null){
+             resp.status(200).json("Completed")
+         } else {
+            resp.status(404).json("Err")
+         }
+         
+         
 
     } catch (err ){
         console.log(err);
+        resp.status(404).json("Err")
+    }
+        
+ })
+
+ router.route('/dischargepatient/:id').patch(async(req,resp)=>{
+       
+    try {
+            
+
+        var dateTime =  new Date().toISOString().slice(0, 10);  
+
+        var updates = req.body;
+        updates["allotmentdate"] = dateTime;
+        updates["status"] = "occupied";
+        updates["patienid"] = req.body.patienid
+        console.table(updates);
+         const id = req.params.id;    
+         const options = {new:true};
+         let result = await Room.findByIdAndUpdate(id,updates,options); 
+         console.log("🚀 ~ file: Roomapi.js ~ line 57 ~ router.route ~ result", result)
+         
+         if (result!=null){
+             resp.status(200).json("Completed")
+         } else {
+            resp.status(404).json("Err")
+         }
+         
+         
+
+    } catch (err ){
+        console.log(err);
+        resp.status(404).json("Err")
     }
         
  })

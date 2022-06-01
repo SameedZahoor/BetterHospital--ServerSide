@@ -9,7 +9,7 @@ const res = require('express/lib/response');
 
 require('../db/config');
 
-router.route('/adddoctor').post(async(req,resp)=>{
+router.route('/add').post(async(req,resp)=>{
     
     console.log("api targeted")
 
@@ -25,12 +25,18 @@ router.route('/adddoctor').post(async(req,resp)=>{
      phone:req.body.phone,
      age:req.body.age,
      gender:req.body.gender,
-     dob:new Date(parseInt(req.body.dob.year),parseInt(req.body.dob.month),parseInt(req.body.dob.day))     
+     dob:req.body.dob ,
+     bachelor_edu: req.body.bachelor_edu,
+     masters_edu:req.body.masters_edu
     });
     
     let result = await doctordata.save(); 
-    resp.send(result);
- // resp.send("recieved");
+    if (result!=null){
+        resp.status(200).json("Completed")
+    } else {
+        resp.status(404).json("Err")
+    }
+    
         
  })
  

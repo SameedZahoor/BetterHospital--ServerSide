@@ -14,12 +14,15 @@ router.route("/add").post(jsonparser, function (req, res) {
     res.status(404).json("Error");
   }
 
+
+  const date = new Date().toISOString().slice(0, 10)
+
   const Radiology_Data = new Radiology({
     _id: new mongoose.Types.ObjectId(),
     patientid: req.body.patientid,
     radiology_type: req.body.radiology_type,
     charges: chargevalue,
-    dated: new Date(),
+    dated: date,
   });
 
   Radiology_Data.save()
